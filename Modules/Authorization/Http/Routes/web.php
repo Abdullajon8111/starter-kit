@@ -11,6 +11,11 @@
 |
 */
 
-Route::prefix('authorization')->group(function() {
-    Route::get('/', 'AuthorizationController@index');
+use Modules\Authorization\Http\Controllers\AuthorizationController;
+
+Route::prefix('auth')->group(function () {
+
+    Route::get('login', [AuthorizationController::class, 'index'])->name('authorization.index');
+    Route::post('login', [AuthorizationController::class, 'attempt'])->name('authorization.attempt');
+
 });

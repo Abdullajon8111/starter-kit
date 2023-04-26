@@ -16,6 +16,6 @@ class AuthorizationDatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        // $this->call("OthersTableSeeder");
+        $this->call(SuperAdminUserSeederTableSeeder::class);
     }
 }
