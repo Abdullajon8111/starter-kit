@@ -4,7 +4,7 @@ namespace Modules\Authorization\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AttempLoginRequest extends FormRequest
+class AttemptLoginRequest extends FormRequest
 {
 
     public function rules(): array

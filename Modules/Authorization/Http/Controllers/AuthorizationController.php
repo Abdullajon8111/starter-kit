@@ -6,7 +6,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Validation\ValidationException;
-use Modules\Authorization\Http\Requests\AttempLoginRequest;
+use Modules\Authorization\Http\Requests\AttemptLoginRequest;
 
 class AuthorizationController extends Controller
 {
@@ -15,12 +15,12 @@ class AuthorizationController extends Controller
         return view('authorization::login');
     }
 
-    public function attempt(AttempLoginRequest $request)
+    public function attempt(AttemptLoginRequest $request)
     {
         $credentials = $request->validated();
 
         if (!auth()->attempt($credentials)) {
-            throw ValidationException::withMessages(['username' => 'failure']);
+            throw ValidationException::withMessages(['username' => __('These credentials do not match our records')]);
         }
 
         return 'success';
