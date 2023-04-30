@@ -1,21 +1,21 @@
 <?php
 
-namespace Modules\Authorization\Database\Seeders;
+namespace Modules\Auth\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
-class AuthorizationDatabaseSeeder extends Seeder
+class AuthDatabaseSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      *
      * @return void
      */
-    public function run(): void
+    public function run()
     {
         Model::unguard();
 
-        $this->call(SuperAdminUserSeederTableSeeder::class);
+        // $this->call("OthersTableSeeder");
     }
 }

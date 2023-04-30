@@ -1,4 +1,4 @@
-@extends('authorization::layouts.master')
+@extends('auth::layouts.master')
 
 @section('content')
     <div class="app-content content">
@@ -25,7 +25,7 @@
                                         <p class="px-2">Welcome back, please login to your account.</p>
                                         <div class="card-content">
                                             <div class="card-body pt-1">
-                                                <form action="{{ route('authorization.attempt') }}" method="post">
+                                                <form action="{{ route('login.attempt') }}" method="post">
                                                     @csrf
                                                     <fieldset class="form-label-group form-group position-relative has-icon-left">
                                                         <input name="username" type="text" class="form-control" id="user-name" placeholder="Username" required>

@@ -1,12 +1,11 @@
 <?php
 
-namespace Modules\Authorization\Http\Requests;
+namespace Modules\Auth\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
 class AttemptLoginRequest extends FormRequest
 {
-
     public function rules(): array
     {
         return [
