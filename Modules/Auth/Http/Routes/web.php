@@ -2,6 +2,7 @@
 
 use Modules\Auth\Http\Controllers\DashboardController;
 use Modules\Auth\Http\Controllers\LoginController;
+use Modules\Auth\Http\Controllers\UserController;
 
 Route::prefix('auth')->middleware('guest')->group(function () {
 
@@ -13,3 +14,6 @@ Route::middleware('auth:web')->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 });
+
+Route::get('user', [UserController::class, 'index'])->name('user.index');
+Route::delete('user/{user}/delete', [UserController::class, 'destroy'])->name('user.delete');
