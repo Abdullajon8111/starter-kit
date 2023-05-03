@@ -1,10 +1,9 @@
 <?php
 
-namespace $NAMESPACE$;
+namespace Modules\Admin\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
-class $CLASS$ extends Model
+class Menu extends Model
 {
     protected $guarded = ['id'];
 }
