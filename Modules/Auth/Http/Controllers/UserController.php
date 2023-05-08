@@ -14,9 +14,17 @@ class UserController extends Controller
     {
         $dataProvider = new EloquentDataProvider(User::query());
 
-        return view('auth::user.index', [
-            'dataProvider' => $dataProvider
-        ]);
+        return view('auth::user.index', compact('dataProvider'));
+    }
+
+    public function show(User $user)
+    {
+        return view('auth::user.show', compact('user'));
+    }
+
+    public function create()
+    {
+
     }
 
     public function store()
@@ -29,20 +37,15 @@ class UserController extends Controller
 
     }
 
+    public function update()
+    {
+
+    }
+
     public function destroy(User $user)
     {
         $user->delete();
 
         return back();
-    }
-
-    public function create()
-    {
-
-    }
-
-    public function update()
-    {
-
     }
 }

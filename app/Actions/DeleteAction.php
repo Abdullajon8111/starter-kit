@@ -25,6 +25,6 @@ class DeleteAction extends BaseAction
 
     protected function buildUrl($row): string
     {
-        return $this->getCurrentUrl() . '/' . $row->id . '/' . self::ACTION;
+        return $this->getCurrentUrl() . '/' . $row->id;
     }
 }

@@ -12,4 +12,5 @@
 <script src="{{ asset('app-assets/js/scripts/components.js') }}"></script>
 <!-- END: Theme JS-->
 
+@stack('scripts')
 @yield('scripts')
