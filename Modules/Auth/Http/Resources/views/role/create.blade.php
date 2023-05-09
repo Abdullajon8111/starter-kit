@@ -26,6 +26,16 @@
                         </div>
 
                         <div class="form-group">
+                            <select multiple="multiple" name="permissions[]" class="form-control custom-select">
+                                @foreach($permissions as $permission)
+                                    <option value="{{ $permission->id }}" {{ in_array($permission->id, old('permissions', [])) ? 'selected' : '' }}>
+                                        {{ $permission->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group">
                             <button class="btn btn-primary" type="submit">
                                 <i class="fa fa-save"></i>
                                 &ensp; Save
@@ -37,4 +47,20 @@
         </div>
     </div>
 
+@endsection
+
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('packages/bootstrap-duallistbox/bootstrap-duallistbox.min.css') }}">
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('packages/bootstrap-duallistbox/jquery.bootstrap-duallistbox.min.js') }}"></script>
+    <script>
+        $('select[name="permissions[]"]').bootstrapDualListbox({
+            // nonSelectedListLabel: 'Non-selected',
+            // selectedListLabel: 'Selected',
+            // preserveSelectionOnMove: 'moved',
+            // moveOnSelect: false,
+        });
+    </script>
 @endsection
