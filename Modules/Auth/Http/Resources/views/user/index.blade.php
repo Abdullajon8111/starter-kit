@@ -17,6 +17,34 @@
         'columnFields' => [
             'username',
             'email',
+            [
+                'label' => 'roles',
+                'value' => function (\App\Models\User $user) {
+                    $roles = $user->roles;
+                    $html = '';
+                    foreach ($roles as $role) {
+                        $html .= '<span class="badge badge-success">' . $role->name. '</span>&ensp;';
+                    }
+
+                    return $html;
+                },
+                'filter' => false,
+                'format' => 'html'
+            ],
+            [
+                'label' => 'permissions',
+                'value' => function (\App\Models\User $user) {
+                    $permissions = $user->permissions;
+                    $html = '';
+                    foreach ($permissions as $permission) {
+                        $html .= '<span class="badge badge-success">' . $permission->name. '</span>&ensp;';
+                    }
+
+                    return $html;
+                },
+                'filter' => false,
+                'format' => 'html'
+            ],
             'created_at',
             [
                 'label' => 'Actions',

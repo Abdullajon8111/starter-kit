@@ -16,6 +16,19 @@
         'columnFields' => [
             'name',
             'guard_name',
+            [
+                'label' => 'permissions',
+                'value' => function (\Modules\Auth\Models\Role $role) {
+                    $permissions = $role->permissions;
+                    $html = '';
+                    foreach ($permissions as $permission) {
+                        $html .= '<span class="badge badge-success">' . $permission->name . '</span>&ensp;';
+                    }
+
+                    return $html;
+                },
+                'format' => 'html'
+            ],
             'created_at',
             [
                 'label' => 'Actions',

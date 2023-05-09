@@ -16,6 +16,7 @@ class UserController extends Controller
     {
         $dataProvider = new EloquentDataProvider(User::query());
 
+
         return view('auth::user.index', compact('dataProvider'));
     }
 

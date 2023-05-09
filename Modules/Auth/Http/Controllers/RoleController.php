@@ -18,6 +18,11 @@ class RoleController extends Controller
         return view('auth::role.index', compact('dataProvider'));
     }
 
+    public function show(Role $role)
+    {
+        return view('auth::role.show', compact('role'));
+    }
+
     public function create()
     {
         $guards = Role::guards();
