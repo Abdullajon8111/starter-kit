@@ -11,7 +11,7 @@ class RoleStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required'],
+            'name' => ['required', Rule::unique('roles', 'name')],
             'guard' => ['required', Rule::in(Role::guards())],
             'permissions' => ['array', 'nullable']
         ];

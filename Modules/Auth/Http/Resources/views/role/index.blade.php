@@ -27,6 +27,11 @@
 
                     return $html;
                 },
+                'filter' => [
+                    'class' => \Itstructure\GridView\Filters\DropdownFilter::class,
+                    'data' => \Modules\Auth\Models\Permission::all()->pluck('name', 'id')->toArray(),
+                    'name' => 'permission'
+                ],
                 'format' => 'html'
             ],
             'created_at',

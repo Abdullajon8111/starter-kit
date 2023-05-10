@@ -4,6 +4,7 @@ namespace Modules\Auth\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 use Itstructure\GridView\DataProviders\EloquentDataProvider;
+use Modules\Auth\DataProvider\RoleDataProvider;
 use Modules\Auth\Http\Requests\RoleStoreRequest;
 use Modules\Auth\Http\Requests\RoleUpdateRequest;
 use Modules\Auth\Models\Permission;
@@ -13,7 +14,7 @@ class RoleController extends Controller
 {
     public function index()
     {
-        $dataProvider = new EloquentDataProvider(Role::query());
+        $dataProvider = new RoleDataProvider(Role::query());
 
         return view('auth::role.index', compact('dataProvider'));
     }

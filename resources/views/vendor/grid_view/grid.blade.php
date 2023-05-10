@@ -67,6 +67,14 @@
                         <form action="{{ $filtersFormAction }}" method="get" id="grid_view_filters_form">
                             <td></td>
                             @foreach($columnObjects as $column_obj)
+                                @if ($useFilters and $loop->last)
+                                    <td>
+                                        <button id="grid_view_search_button" type="button" class="btn btn-primary">{{ $searchButtonLabel }}</button>
+                                        <button id="grid_view_reset_button" type="button" class="btn btn-warning">{{ $resetButtonLabel }}</button>
+                                    </td>
+                                    @continue
+                                @endif
+
                                 <td>
                                     @if($column_obj instanceof \Itstructure\GridView\Columns\CheckboxColumn)
                                         <input type="checkbox" id="grid_view_checkbox_main" class="form-control form-control-sm" @if($paginator->count() == 0) disabled="disabled" @endif />
@@ -98,17 +106,14 @@
                         <td colspan="{{ count($columnObjects) + 1 }}">
                             <div class="mx-1">
                                 <div class="row">
-                                    <div class="col-12 col-xl-8 text-center text-xl-left">
-                                        {{ $paginator->render('grid_view::pagination') }}
-                                    </div>
-                                    <div class="col-12 col-xl-4 text-center text-xl-right">
-                                        @if ($useFilters)
-                                            <button id="grid_view_search_button" type="button" class="btn btn-primary">{{ $searchButtonLabel }}</button>
-                                            <button id="grid_view_reset_button" type="button" class="btn btn-warning">{{ $resetButtonLabel }}</button>
-                                        @endif
+                                    <div class="col-12 col-xl-4 text-center pl-0 text-xl-left">
+
                                         @if (($checkboxesExist || $useSendButtonAnyway) && $paginator->count() > 0)
                                             <button type="submit" class="btn btn-danger">{{ $sendButtonLabel }}</button>
                                         @endif
+                                    </div>
+                                    <div class="col-12 col-xl-8 text-center text-xl-right">
+                                        {{ $paginator->render('grid_view::pagination') }}
                                     </div>
                                 </div>
                             </div>

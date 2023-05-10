@@ -11,6 +11,10 @@
 |
 */
 
-Route::prefix('admin')->group(function() {
-    Route::get('/', 'AdminController@index');
+use Modules\Admin\Http\Controllers\MenuController;
+
+Route::prefix('admin')->group(function () {
+
+    Route::get('menu', [MenuController::class, 'index'])->name('menu.index');
+
 });
